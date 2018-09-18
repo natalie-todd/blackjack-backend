@@ -2,7 +2,7 @@
   "name": "blackjack",
   "version": "1.0.0",
   "description": "capstones",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
@@ -12,9 +12,10 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
-    "mongo-morgan-ext": "^1.0.2",
     "mongodb": "^3.1.6",
-    "monk": "^6.0.6"
+    "monk": "^6.0.6",
+    "morgan": "^1.9.1"
   }
 }
