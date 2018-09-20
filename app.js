@@ -23,6 +23,10 @@ db.then(() => {
 })
 
 app.get('/', (req, res) => {
+  res.json({ result: 'server working' })
+});
+
+app.get('/users', (req, res) => {
   console.log('test test');
   users.find()
     //   [{
@@ -46,6 +50,7 @@ app.get('/', (req, res) => {
       console.log('found');
     })
 });
+
 
 app.get('/games', (req, res) => {
   console.log('games test');
