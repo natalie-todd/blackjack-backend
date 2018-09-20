@@ -41,6 +41,13 @@ app.get('/games', (req, res) => {
     })
 });
 
+app.get('/users/:id', (req, res) => {
+  users.findOne({_id: req.params.id})
+    .then((result) => {
+      res.json(result);
+    })
+});
+
 app.post('/users', (req, res) => {
   users.insert(req.body)
     .then((result) => {
