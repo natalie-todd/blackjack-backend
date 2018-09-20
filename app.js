@@ -42,6 +42,7 @@ app.get('/', (req, res) => {
   // }]
     .then((result) => {
       res.json(result);
+      console.log('found');
     })
 })
 // app.use(commentRoutes);
