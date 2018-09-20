@@ -16,6 +16,7 @@ app.use(cors());
 app.use(morgan('dev'));
 
 const users = db.get('user');
+const games = db.get('game');
 
 db.then(() => {
   console.log("Connected correctly to server");
@@ -23,26 +24,50 @@ db.then(() => {
 
 app.get('/', (req, res) => {
   console.log('test test');
-  users.insert([{
-    id: 1,
-    email: 'luvmykitty@gmail.com',
-    username: 'luvmykitty',
-    password: 'rosie1234',
-    total_winnings: 0,
-    total_games_won: 0
-  },
-  {
-    id: 2,
-    email: 'gbeanster@gmail.com',
-    username: 'gbeanster',
-    password: 'rusticpenguin',
-    total_winnings: 0,
-    total_games_won: 0
-  }])
+  users.find()
+    //   [{
+    //   'id': 1,
+    //   'email': 'luvmykitty@gmail.com',
+    //   'username': 'luvmykitty',
+    //   'password': 'rosie1234',
+    //   'total_winnings': 0,
+    //   'total_games_won': 0
+    // },
+    // {
+    //   'id': 2,
+    //   'email': 'gbeanster@gmail.com',
+    //   'username': 'gbeanster',
+    //   'password': 'rusticpenguin',
+    //   'total_winnings': 0,
+    //   'total_games_won': 0
+    // }]
     .then((result) => {
-      console.log('removed');
+      res.json(result);
+      console.log('found');
     })
-})
+});
+
+app.get('/games', (req, res) => {
+  console.log('games test');
+  games.find()
+    // [{
+    //     'id': 1,
+    //     'date': '2018-09-20',
+    //     'score': 0,
+    //     'winnings': 0
+    //   },
+    //   {
+    //     'id': 2,
+    //     'date': '2018-09-20',
+    //     'score': 0,
+    //     'winnings': 0
+    //   }]
+    .then((result) => {
+      res.json(result);
+      console.log('found');
+    })
+});
+
 // app.use(commentRoutes);
 
 app.use(notFound)
