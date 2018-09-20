@@ -48,6 +48,13 @@ app.post('/users', (req, res) => {
     })
 });
 
+app.post('/games', (req, res) => {
+  users.insert(req.body)
+    .then((result) => {
+      res.json(result);
+    })
+});
+
 app.use(notFound)
 app.use(errorHandler)
 
